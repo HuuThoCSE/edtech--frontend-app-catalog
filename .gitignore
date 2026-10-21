@@ -1,0 +1,28 @@
+.DS_Store
+.eslintcache
+.idea
+node_modules
+npm-debug.log
+coverage
+module.config.js
+
+dist/
+src/i18n/transifex_input.json
+temp/babel-plugin-react-intl
+
+### pyenv ###
+.python-version
+
+### Emacs ###
+*~
+/temp
+/.vscode
+
+webpack.dev-tutor.config.js
+
+# CUSC local backups
+.cusc-catalog-backups/
+src/cusc-catalog.before-import-fix/
+*.pre-cusc
+*.before-import-fix
+*.bak
