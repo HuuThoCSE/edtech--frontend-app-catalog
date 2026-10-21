@@ -1,0 +1,447 @@
+/*
+ * CUSC Catalog V2 for the Verawood Catalog MFE.
+ * Scoped to the homepage (.cusc-catalog) / optional Catalog-only footer.
+ * Intentionally does NOT override global .container, .btn or generic .card.
+ */
+.cusc-catalog {
+  --cusc-blue: #095da5;
+  --cusc-deep: #0b2750;
+  --cusc-green: #08ad8a;
+  --cusc-text: #15253b;
+  --cusc-muted: #64748b;
+  --cusc-border: #e1e8f0;
+  --cusc-shadow: 0 14px 36px rgba(16, 39, 76, .08);
+  color: var(--cusc-text);
+}
+
+.cusc-visually-hidden {
+  position: absolute !important;
+  height: 1px !important;
+  width: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+}
+
+/* Hero */
+.cusc-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(122deg, #07569e 0%, #067f9f 50%, #0eaf88 100%);
+  color: #fff;
+}
+.cusc-hero::after {
+  position: absolute;
+  content: '';
+  pointer-events: none;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 560px 270px at 10% 25%, rgba(255,255,255,.12), transparent 72%),
+    radial-gradient(ellipse 580px 340px at 94% 72%, rgba(178,255,235,.17), transparent 77%);
+  opacity: 1;
+  z-index: -1;
+}
+.cusc-hero__glow {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cusc-hero__glow--one { top: -380px; left: -110px; box-shadow: 0 0 0 80px rgba(255,255,255,.025), 0 0 0 170px rgba(255,255,255,.02); }
+.cusc-hero__glow--two { bottom: -490px; right: -100px; box-shadow: 0 0 0 80px rgba(255,255,255,.025), 0 0 0 170px rgba(255,255,255,.02); }
+.cusc-hero__content {
+  position: relative;
+  max-width: 1080px;
+  width: calc(100% - 36px);
+  margin: auto;
+  padding: clamp(54px, 6.2vw, 88px) 0 56px;
+  text-align: center;
+}
+.cusc-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.30);
+  border-radius: 100px;
+  color: #e7fff9;
+  letter-spacing: .085em;
+  font-size: .77rem;
+  font-weight: 800;
+  padding: 9px 15px;
+  backdrop-filter: blur(6px);
+}
+.cusc-hero__spark {
+  background: #aff5cb;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(175,245,203,.14);
+}
+.cusc-hero h1 {
+  max-width: 800px;
+  margin: 20px auto 16px;
+  font-size: clamp(2.35rem, 4.4vw, 4.2rem);
+  font-weight: 850;
+  letter-spacing: -.045em;
+  line-height: 1.12;
+  color: #fff;
+}
+.cusc-hero h1 span { color: #d0fff4; }
+.cusc-hero__lead {
+  max-width: 680px;
+  margin: 0 auto;
+  color: rgba(255,255,255,.93);
+  line-height: 1.72;
+  font-size: clamp(.98rem, 1.45vw, 1.13rem);
+}
+.cusc-hero__search {
+  margin: 34px auto 0;
+  max-width: 850px;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(2,34,64,.18);
+}
+.cusc-hero__search-icon {
+  display: block;
+  margin-left: 14px;
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  color: #58718a;
+}
+.cusc-hero__search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  color: #172842;
+  outline: 0;
+  padding: 13px 5px;
+  font-size: 1rem;
+}
+.cusc-hero__search input::placeholder { color: #7a8a9e; }
+.cusc-hero__submit {
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 10px;
+  padding: 14px 22px;
+  background: linear-gradient(105deg, #075ba4, #0b8b9c);
+  color: #fff;
+  font-size: .97rem;
+  font-weight: 760;
+  cursor: pointer;
+  transition: box-shadow .18s ease, background .18s ease;
+}
+.cusc-hero__submit:hover { box-shadow: 0 6px 15px rgba(0,85,150,.25); }
+.cusc-hero__submit span { padding-left: 7px; }
+.cusc-hero__bottom {
+  max-width: 850px;
+  margin: 19px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: .85rem;
+}
+.cusc-hero__suggestions { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.cusc-hero__suggestions > span { opacity: .82; margin-right: 3px; }
+.cusc-hero__suggestions button {
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.11);
+  color: #fff;
+  border-radius: 100px;
+  padding: 6px 11px;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background .18s ease;
+}
+.cusc-hero__suggestions button:hover { background: rgba(255,255,255,.25); }
+.cusc-hero__dashboard { font-weight: 700; color: #f1ffff; text-decoration: none; }
+.cusc-hero__dashboard:hover { color: #fff; text-decoration: underline; }
+
+/* Course listing */
+.cusc-home-main { background: #f7f9fc; }
+.cusc-home-courses { padding: clamp(50px, 5vw, 78px) 0 68px; }
+.cusc-home-courses .container { max-width: 1220px; }
+.cusc-section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 25px; }
+.cusc-section-heading__eyebrow { display: inline-block; color: #007e89; letter-spacing: .11em; font-weight: 800; font-size: .74rem; }
+.cusc-section-heading h2 { color: #102847; margin: 6px 0 8px; font-weight: 820; font-size: clamp(1.7rem, 2.65vw, 2.35rem); letter-spacing: -.035em; }
+.cusc-section-heading__intro { color: var(--cusc-muted); margin: 0; font-size: .97rem; }
+.cusc-courses-count { white-space: nowrap; border: 1px solid #c7eae7; background: #eafaf7; padding: 9px 14px; border-radius: 100px; color: #0b7775; font-weight: 750; font-size: .86rem; }
+.cusc-filter-bar {
+  background: #fff;
+  border: 1px solid var(--cusc-border);
+  box-shadow: 0 5px 18px rgba(31,58,84,.035);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 0 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cusc-filter-control { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.cusc-filter-control label { color: #31445f; font-size: .9rem; font-weight: 750; }
+.cusc-filter-control select {
+  border-radius: 9px;
+  border: 1px solid #d3dfe8;
+  background: #fff;
+  padding: 10px 34px 10px 13px;
+  max-width: 100%;
+  min-height: 42px;
+  color: #193354;
+}
+.cusc-filter-count { font-size: .85rem; color: #698094; margin: 0; }
+
+.cusc-course-grid .pgn__card,
+.cusc-course-grid .course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 345px;
+  padding-bottom: 58px;
+  border: 1px solid #dae4eb;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 0 7px 20px rgba(28,57,89,.065);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.cusc-course-grid a.course-card:hover,
+.cusc-course-grid a.course-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: #8acbc9;
+  box-shadow: 0 18px 34px rgba(16,58,91,.14);
+  text-decoration: none;
+}
+.cusc-course-grid .course-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 210px;
+  object-fit: cover;
+  background: #eff4f7;
+}
+.cusc-course-grid .pgn__card-header { flex: 1; padding-top: 15px; }
+.cusc-course-grid .pgn__card-header-title,
+.cusc-course-grid .course-card .pgn__card-header-title {
+  color: #162942;
+  font-size: 1.03rem;
+  line-height: 1.42;
+  font-weight: 770;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.cusc-course-grid .pgn__badge { background: #e8f7f6; color: #057c86; border-radius: 5px; font-weight: 700; }
+.cusc-course-grid .pgn__card-footer { color: #74869a; font-size: .83rem; }
+/* The whole stock Card is an accessible link; the label below is decorative. */
+.cusc-course-grid a.course-card::after {
+  position: absolute;
+  bottom: 14px;
+  left: 15px;
+  right: 15px;
+  content: 'Xem chi tiết khóa học  →';
+  pointer-events: none;
+  text-align: center;
+  font-size: .88rem;
+  line-height: 1.35;
+  font-weight: 760;
+  color: #fff;
+  padding: 11px 12px;
+  border-radius: 9px;
+  background: linear-gradient(110deg, #0863a6, #08a98b);
+}
+.cusc-view-all { display: flex; justify-content: center; margin-top: 35px; }
+.cusc-view-all button, .cusc-outline-btn {
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid #095da5;
+  background: #095da5;
+  color: #fff;
+  font-weight: 750;
+  cursor: pointer;
+}
+.cusc-outline-btn { background: transparent; color: #095da5; }
+.cusc-view-all button:hover { background: #064984; }
+.cusc-empty-state { text-align: center; background: #fff; padding: 44px 20px; border: 1px dashed #bfcfdd; border-radius: 16px; }
+.cusc-empty-state h3 { margin: 8px 0 8px; color: #263d58; }
+.cusc-empty-state p { color: #65788e; }
+.cusc-empty-state__icon { font-size: 2rem; color: #0b8095; }
+.cusc-benefits { padding: 26px 0 56px; }
+.cusc-benefits__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.cusc-benefits__grid > div { padding: 21px 22px; background: #fff; border: 1px solid #e1eaf0; border-radius: 15px; }
+.cusc-benefits__grid span { font-size: 1.4rem; float: left; margin-right: 13px; color: #0b9892; }
+.cusc-benefits__grid strong { display: block; color: #233956; font-size: .95rem; }
+.cusc-benefits__grid p { margin: 5px 0 0; color: #728297; font-size: .85rem; line-height: 1.5; }
+
+/* Catalog-only optional footer: no CSS leaks to LMS or other MFEs. */
+.cusc-site-footer { background: #101b31; color: #eaf3ff; }
+.cusc-footer__inner {
+  max-width: 1210px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding: 55px 0 38px;
+  display: grid;
+  grid-template-columns: 1.5fr .8fr 1fr;
+  gap: clamp(28px,5vw,85px);
+}
+.cusc-footer__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+.cusc-footer__brand-ctu, .cusc-footer__brand-cusc {
+  width: 58px;
+  height: 52px;
+  border-radius: 8px;
+  display: block;
+  background: #fff center / contain no-repeat;
+}
+.cusc-footer__brand-ctu { background-image: url('./assets/ctu-logo.png'); }
+.cusc-footer__brand-cusc { background-image: url('./assets/cusc-logo.png'); }
+.cusc-footer__about strong { display: block; margin-bottom: 9px; color: #fff; font-size: 1.12rem; }
+.cusc-footer__about p { max-width: 370px; margin: 0; }
+.cusc-site-footer p { color: #c1cee1; line-height: 1.7; font-size: .9rem; }
+.cusc-site-footer h2 { color: #fff; font-size: 1rem; margin: 0 0 17px; font-weight: 780; }
+.cusc-footer__links, .cusc-footer__contact { display: flex; flex-direction: column; gap: 11px; }
+.cusc-site-footer a { color: #d8e5f2; text-decoration: none; font-size: .91rem; }
+.cusc-site-footer a:hover { color: #74e9ce; text-decoration: underline; }
+.cusc-footer__contact p { margin: 0; }
+.cusc-footer__bottom {
+  max-width: 1210px;
+  margin: 0 auto;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0 27px;
+  border-top: 1px solid rgba(226,238,248,.14);
+  font-size: .81rem;
+  color: #abbdd3;
+}
+.cusc-footer__bottom div { display: flex; flex-wrap: wrap; gap: 23px; }
+.cusc-footer__bottom a { font-size: .81rem; }
+
+.cusc-catalog :is(button,input,select,a):focus-visible {
+  outline: 3px solid #ffc857;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .cusc-benefits__grid { grid-template-columns: 1fr 1fr; }
+  .cusc-footer__inner { grid-template-columns: 1.2fr 1fr; }
+  .cusc-footer__contact { grid-column: 1 / -1; }
+}
+@media (max-width: 767px) {
+  .cusc-hero__content { width: calc(100% - 28px); padding: 55px 0 38px; }
+  .cusc-hero h1 { font-size: clamp(2.1rem, 8vw, 3rem); }
+  .cusc-hero__search { display: grid; grid-template-columns: 26px minmax(0,1fr); gap: 5px; padding: 10px 12px; }
+  .cusc-hero__search-icon { margin-left: 5px; }
+  .cusc-hero__search input { padding: 12px 4px; }
+  .cusc-hero__submit { grid-column: 1 / -1; width: 100%; }
+  .cusc-hero__bottom { flex-direction: column; }
+  .cusc-section-heading { flex-direction: column; align-items: start; gap: 10px; }
+  .cusc-home-courses { padding: 40px 0 46px; }
+  .cusc-filter-bar { align-items: stretch; }
+  .cusc-filter-control { width: 100%; flex-direction: column; align-items: stretch; gap: 6px; }
+  .cusc-benefits { padding: 8px 0 38px; }
+  .cusc-benefits__grid { grid-template-columns: 1fr; }
+  .cusc-footer__inner { grid-template-columns: 1fr; padding: 40px 0 30px; }
+  .cusc-footer__contact { grid-column: auto; }
+  .cusc-footer__bottom { flex-direction: column; align-items: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cusc-catalog *, .cusc-catalog *::before, .cusc-catalog *::after { transition: none !important; animation: none !important; }
+}
+
+
+/* V2.1 — giữ các module V1 trong thẩm mỹ V2 */
+.cusc-home-main > .cusc-featured,
+.cusc-home-main > .cusc-news,
+.cusc-home-main > .cusc-operators { padding: clamp(44px, 4.8vw, 68px) 0; }
+.cusc-featured { background: #eef5f9; border-top: 1px solid #e1ebf2; }
+.cusc-news { background: #fff; border-top: 1px solid #e7edf3; }
+.cusc-operators { background: #f7f9fc; border-top: 1px solid #e7edf3; }
+.cusc-featured .container,
+.cusc-news .container,
+.cusc-operators .container { max-width: 1220px; }
+.cusc-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; }
+.cusc-tab {
+  background: #fff; color: #17425d; border: 1px solid #cadae7;
+  padding: 10px 18px; font-weight: 740; border-radius: 999px;
+  cursor: pointer; transition: background .16s ease, border-color .16s ease;
+}
+.cusc-tab:hover { border-color: #0e8c9f; background: #ecf9f7; }
+.cusc-tab--active, .cusc-tab--active:hover {
+  color: #fff; background: #075da4; border-color: #075da4;
+}
+.cusc-note { margin-top: 20px; margin-bottom: 0; font-size: .82rem; color: #62778a; line-height: 1.6; }
+.cusc-text-link {
+  border: 1px solid #cedae6; border-radius: 9px; background: #fff;
+  color: #0862a3; padding: 10px 17px; font-weight: 730; cursor: pointer;
+}
+.cusc-text-link:hover { background: #eef8fa; }
+.cusc-news__grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
+}
+.cusc-news__card {
+  background: #fff; border: 1px solid #dfe8ef; border-radius: 15px;
+  padding: 20px; box-shadow: 0 5px 20px rgba(16, 39, 76, .045);
+}
+.cusc-news__card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
+.cusc-news__card h3 { font-size: 1.02rem; line-height: 1.45; margin: 12px 0 8px; }
+.cusc-news__card h3 a { color: #075da4; }
+.cusc-news__card p { color: #5d7087; line-height: 1.7; }
+.cusc-news__empty {
+  color: #556d82; background: #f7fafc; padding: 24px;
+  border-radius: 13px; border: 1px dashed #cedbe4;
+}
+.cusc-brand-partners { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 24px 0; }
+.cusc-brand-partners__ctu, .cusc-brand-partners__cusc {
+  width: 98px; height: 72px; display: inline-block;
+  border-radius: 13px; border: 1px solid #e1e9ee;
+  background-color: white; background-size: contain; background-position: center;
+  background-repeat: no-repeat; box-shadow: 0 3px 14px rgba(16, 39, 76, .06);
+}
+.cusc-brand-partners__ctu { background-image: url('./assets/ctu-logo.png'); }
+.cusc-brand-partners__cusc { background-image: url('./assets/cusc-logo.png'); }
+.cusc-operators__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+}
+.cusc-operator {
+  display: flex; gap: 13px; align-items: center; border: 1px solid #e0e9f1;
+  background: #fff; padding: 17px 20px; border-radius: 13px;
+  font-weight: 750; color: #254563;
+}
+.cusc-operator__avatar {
+  display: grid; place-items: center; flex: 0 0 48px;
+  width: 48px; height: 48px; background: linear-gradient(135deg, #075da4, #0aaa90);
+  border-radius: 12px; color: #fff; font-weight: 800;
+}
+.cusc-featured :is(button,a):focus-visible,
+.cusc-news :is(button,a):focus-visible,
+.cusc-operators :is(button,a):focus-visible {
+  outline: 3px solid #ffc857; outline-offset: 3px;
+}
+@media (max-width: 767px) {
+  .cusc-news__grid { grid-template-columns: 1fr; }
+  .cusc-home-main > .cusc-featured,
+  .cusc-home-main > .cusc-news,
+  .cusc-home-main > .cusc-operators { padding: 38px 0; }
+  .cusc-brand-partners__ctu, .cusc-brand-partners__cusc { width: 76px; height: 58px; }
+}

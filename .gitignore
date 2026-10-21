@@ -19,3 +19,10 @@ temp/babel-plugin-react-intl
 /.vscode
 
 webpack.dev-tutor.config.js
+
+# CUSC local backups
+.cusc-catalog-backups/
+src/cusc-catalog.before-import-fix/
+*.pre-cusc
+*.before-import-fix
+*.bak

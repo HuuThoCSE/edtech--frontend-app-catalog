@@ -1,12 +1,13 @@
-import { Head } from '@src/generic';
-import HomeBannerSlot from '../plugin-slots/HomeBannerSlot';
-import HomeCoursesListSlot from '../plugin-slots/HomeCoursesListSlot';
+import { Head } from '../generic';
+
+import CuscHero from '../cusc-catalog/CuscHero';
+import CuscHomeCourses from '../cusc-catalog/CuscHomeCourses';
 
 const HomePage = () => (
   <>
     <Head />
-    <HomeBannerSlot />
-    <HomeCoursesListSlot />
+    <CuscHero />
+    <CuscHomeCourses />
   </>
 );
 

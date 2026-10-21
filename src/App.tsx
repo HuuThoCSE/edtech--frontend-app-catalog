@@ -1,7 +1,7 @@
 import { AppProvider } from '@edx/frontend-platform/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Route, Routes } from 'react-router-dom';
-import { FooterSlot } from '@edx/frontend-component-footer';
+import CuscCatalogFooter from './cusc-catalog/CuscCatalogFooter';
 
 import CatalogHeader from './header/CatalogHeader';
 import HomePage from './home/HomePage';
@@ -25,7 +25,7 @@ const App = () => (
             <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
           </Routes>
         </main>
-        <FooterSlot />
+        <CuscCatalogFooter />
       </div>
     </QueryClientProvider>
   </AppProvider>

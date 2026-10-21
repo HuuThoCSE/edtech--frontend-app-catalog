@@ -1,6 +1,6 @@
 import { PluginSlot } from '@openedx/frontend-plugin-framework';
 
-import HomeBanner from '@src/home/components/home-banner/HomeBanner';
+import HomeBanner from '../../home/components/home-banner/HomeBanner';
 
 const HomeBannerSlot = () => (
   <PluginSlot

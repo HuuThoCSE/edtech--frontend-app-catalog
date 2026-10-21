@@ -1,0 +1,83 @@
+/* Scoped to the /catalog/courses empty-search-result state only. */
+.cusc-search-fallback {
+  --cusc-search-blue: #075ea8;
+  --cusc-search-green: #0cad87;
+  margin-top: 1.25rem;
+  margin-bottom: 3rem;
+}
+.cusc-search-fallback__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid #cce8e6;
+  border-radius: 1.25rem;
+  background: linear-gradient(110deg, #f0faff 0%, #eefcf7 100%);
+}
+.cusc-search-fallback__symbol {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 3rem;
+  border-radius: 0.9rem;
+  background: #fff;
+  font-size: 1.25rem;
+}
+.cusc-search-fallback__message h2 {
+  margin: 0 0 0.65rem;
+  color: #122238;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+.cusc-search-fallback__message p {
+  margin: 0 0 1.2rem;
+  color: #43546b;
+  line-height: 1.6;
+}
+.cusc-search-fallback__reset {
+  border: 0;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.15rem;
+  color: #fff;
+  background: linear-gradient(100deg, var(--cusc-search-blue), var(--cusc-search-green));
+  cursor: pointer;
+  font-weight: 600;
+}
+.cusc-search-fallback__reset:hover,
+.cusc-search-fallback__reset:focus-visible {
+  box-shadow: 0 6px 16px #075ea82a;
+  filter: brightness(1.06);
+}
+.cusc-search-fallback__list { margin-top: 2rem; }
+.cusc-search-fallback__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.cusc-search-fallback__heading h3 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #142c48;
+}
+.cusc-search-fallback__eyebrow {
+  letter-spacing: 0.09em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #087d91;
+}
+.cusc-search-fallback__count {
+  white-space: nowrap;
+  color: #637387;
+  font-size: 0.83rem;
+}
+.cusc-search-fallback__cards { margin-top: 0.8rem; }
+@media (max-width: 767px) {
+  .cusc-search-fallback__notice { display: block; }
+  .cusc-search-fallback__symbol { margin-bottom: 0.75rem; }
+  .cusc-search-fallback__heading { align-items: flex-start; flex-direction: column; }
+}

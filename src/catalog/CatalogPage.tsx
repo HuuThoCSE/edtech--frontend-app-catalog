@@ -14,6 +14,7 @@ import { useDebouncedSearchInput } from './hooks/useDebouncedSearchInput';
 import { AlertNotification, Loading, Head } from '../generic';
 import { useCatalog } from './hooks/useCatalog';
 import messages from './messages';
+import CuscSearchFallback from '../cusc-catalog/CuscSearchFallback';
 import { transformAggregationsToFilterChoices } from './utils';
 
 const CatalogPage = () => {
@@ -96,19 +97,27 @@ const CatalogPage = () => {
   const totalCourses = displayData?.results?.length ?? 0;
   const pageCount = Math.ceil((displayData?.total || totalCourses) / DEFAULT_PAGE_SIZE);
   const hasCourses = totalCourses > 0 || (previousCourseData?.total ?? 0) > 0;
+  // Keep the search field mounted, but suggest UNFILTERED courses when there are no matches.
+  const hasNoSearchResults = Boolean(searchString.trim())
+    && !isFetching
+    && (courseData?.total ?? 0) === 0;
 
   return (
     <>
       <Head title={intl.formatMessage(messages.pageTitle)} />
       <Container fluid={false} size="xl" className="pt-5.5 mb-6">
         <CourseCatalogIntroSlot searchString={searchString} courseDataResultsLength={courseData?.results?.length} />
-        {hasCourses ? (
+        <CourseCatalogSearchFieldSlot
+          setSearchInput={setSearchInput}
+          handleSearch={handleSearch}
+          initialSearchValue={searchString}
+        />
+        {hasNoSearchResults ? (
+          <CuscSearchFallback searchString={searchString} onReset={() => handleSearch('')} />
+        ) : isFetching && searchString && !hasCourses ? (
+          <p role="status">&#272;ang t&#236;m kh&#243;a h&#7885;c...</p>
+        ) : hasCourses ? (
           <>
-            <CourseCatalogSearchFieldSlot
-              setSearchInput={setSearchInput}
-              handleSearch={handleSearch}
-              initialSearchValue={searchString}
-            />
             <CourseCatalogDataTableSlot
               displayData={displayData}
               totalCourses={totalCourses}
